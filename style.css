@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'adobe-caslon-pro', serif;
+    background-color: #f8f9fa;
+}
+
+#map {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.state {
+    cursor: pointer;
+    transition: fill 0.3s;
+}
+
+.state:hover {
+    stroke-width: 1.5;
+}
+
+.tooltip {
+    font-family: 'adobe-caslon-pro', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    max-width: 300px;
+}
+
+h1 {
+    color: #2B4570;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 0;
+    color: #2B4570;
+}

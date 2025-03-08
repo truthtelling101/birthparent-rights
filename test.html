@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Test</title>
+</head>
+<body>
+    <h1>Testing File Access</h1>
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        // Try to fetch us-states.json
+        fetch('us-states.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                output.innerHTML += '<p style="color:green">us-states.json loaded successfully!</p>';
+                output.innerHTML += `<p>Found ${Object.keys(data).length} keys in the file.</p>`;
+            })
+            .catch(error => {
+                output.innerHTML += `<p style="color:red">Error loading us-states.json: ${error.message}</p>`;
+            });
+
+        // Try to fetch revoperiods.csv
+        fetch('revoperiods.csv')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                output.innerHTML += '<p style="color:green">revoperiods.csv loaded successfully!</p>';
+                output.innerHTML += `<p>CSV file is ${data.length} characters long.</p>`;
+            })
+            .catch(error => {
+                output.innerHTML += `<p style="color:red">Error loading revoperiods.csv: ${error.message}</p>`;
+            });
+    </script>
+</body>
+</html>
